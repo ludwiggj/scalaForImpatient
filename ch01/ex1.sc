@@ -16,6 +16,10 @@ BigInt(2).pow(1024)
 
 
 
+
+
+
+
 // Q7
 probablePrime(100, Random)
 // Q8
@@ -40,6 +44,47 @@ BigInt(80, Random).toString(36)
 "c" take 3
 "c" drop 2
 "c" substring(2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

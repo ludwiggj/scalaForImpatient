@@ -1,3 +1,4 @@
+// Next 2 are equivalent
 "Hello"(4)
 
 "Hello".apply(4)
