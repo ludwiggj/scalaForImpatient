@@ -1,6 +1,6 @@
 val str = "Hello"
-var sum = 1
+var sum = 1L
 
-for (i <- str) sum = sum * i
+for (i: Char <- str) sum = sum * i
 
 sum
