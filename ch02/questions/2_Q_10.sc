@@ -1,3 +1,11 @@
+//Q10. Write a function that computes xn, where n is an integer. Use the following
+//recursive definition:
+//• xn = y2 if n is even and positive, where y = xn / 2.
+//• xn = x· xn – 1 if n is odd and positive.
+//• x0 = 1.
+//• xn = 1 / x–n if n is negative.
+//Don’t use a return statement.
+
 import scala.math._
 
 def power(x: Int, n: Int): Float = {
