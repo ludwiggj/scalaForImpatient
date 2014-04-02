@@ -2,7 +2,7 @@
 //and id (of type Long). What methods are generated? (Use javap to check.) Can
 //you call the JavaBeans getters and setters in Scala? Should you?
 
-package questions
+package questions.q5
 
 import scala.reflect.BeanProperty
 

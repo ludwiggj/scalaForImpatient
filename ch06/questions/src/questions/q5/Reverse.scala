@@ -2,8 +2,8 @@
 //arguments in reverse order, separated by spaces. For example, scala Reverse
 //Hello World should print World Hello.
 
-package questions
+package questions.q5
 
-object Q5_Reverse extends App {
+object Reverse extends App {
   println(">" + args.reverse.mkString(" ") + "<")
 }
