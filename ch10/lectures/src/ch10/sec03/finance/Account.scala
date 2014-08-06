@@ -1,4 +1,4 @@
-package ch10.sec04
+package ch10.sec03.finance
 
 class Account (val id: Int, initialBalance: Double) {
   var balance = initialBalance

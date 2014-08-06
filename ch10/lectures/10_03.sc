@@ -1,4 +1,4 @@
-import ch10.sec03.{GuardedAccount, Account}
+import ch10.sec03.finance.{GuardedAccount, Account}
 
 val a = Account(250.0)
 a.withdrawal(300)

@@ -1,6 +1,8 @@
-package ch10.sec03
+package ch10.sec04.finance
 
-class GuardedAccount(initialBalance: Double) extends Account(Account.newUniqueNumber(), initialBalance) with ConsoleLogger {
+import ch10.sec04.Logged
+
+class GuardedAccount(initialBalance: Double) extends Account(Account.newUniqueNumber(), initialBalance) with Logged {
   override def withdrawal(amount: Double)  {
     if (amount > balance) {
       log(s"Insufficient funds: balance [$balance] requested [$amount]")
@@ -9,6 +11,7 @@ class GuardedAccount(initialBalance: Double) extends Account(Account.newUniqueNu
     }
   }
 }
+
 object GuardedAccount { // The companion object
   def apply(initialBalance: Double) =
     new GuardedAccount(initialBalance)

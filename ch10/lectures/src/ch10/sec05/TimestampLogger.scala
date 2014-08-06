@@ -1,7 +1,7 @@
 package ch10.sec05
 
-import scala.util.logging.Logged
 import java.util.Date
+import ch10.sec04.Logged
 
 trait TimestampLogger extends Logged {
   override def log(msg: String) {

@@ -1,7 +1,8 @@
-package ch10.sec05
+package ch10.sec05.finance
 
-import scala.util.logging.Logged
-import ch10.sec04.Account
+import ch10.sec04.finance.Account
+import ch10.sec04.{ConsoleLogger, Logged}
+import ch10.sec05.{ShortLogger, TimestampLogger}
 
 class SuperGuardedAccount(initialBalance: Double) extends Account(Account.newUniqueNumber(), initialBalance)
 with ConsoleLogger with TimestampLogger with ShortLogger with Logged {

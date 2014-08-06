@@ -1,8 +1,9 @@
 package ch10.sec05
 
-import ch10.sec04.GuardedAccount
+import ch10.sec04.finance.GuardedAccount
+import ch10.sec04.ConsoleLogger
 
-object Logger2 extends App {
+object TimestampShortConsoleLogger extends App {
 
   val a = new GuardedAccount(250.0) with ConsoleLogger with ShortLogger with TimestampLogger
 

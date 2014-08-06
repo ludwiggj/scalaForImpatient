@@ -1,6 +1,6 @@
 package ch10.sec05
 
-import scala.util.logging.Logged
+import ch10.sec04.Logged
 
 trait ShortLogger extends Logged {
   val maxLength = 15
