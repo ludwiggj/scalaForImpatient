@@ -1,0 +1,24 @@
+total 24
+drwxr-xr-x+ 11 ludwiggj  staff   374 Jul 25 22:49 .
+drwxr-xr-x+ 51 ludwiggj  staff  1734 Aug 14 20:50 ..
+-rw-r--r--@  1 ludwiggj  staff  6148 Aug 14 00:37 .DS_Store
+drwxr-xr-x+ 10 ludwiggj  staff   340 Aug 14 00:32 CleanCode
+drwxr-xr-x+ 11 ludwiggj  staff   374 May  3 07:33 ScalaMockExample
+drwxr-xr-x+ 14 ludwiggj  staff   476 Jun 13 17:03 financeGadget
+drwxr-xr-x+ 16 ludwiggj  staff   544 Apr 27 23:41 fnProgramScala
+-rwxrwxrwx@  1 ludwiggj  staff  2641 Apr 25 15:57 gettok.sh
+drwxr-xr-x+ 17 ludwiggj  staff   578 May 29 20:50 java-micro-types
+drwxr-xr-x+ 12 ludwiggj  staff   408 Aug 14 20:50 scalaForImpatient
+drwxr-xr-x+  9 ludwiggj  staff   306 Apr 26 08:45 ssoup
+total 24
+drwxr-xr-x+ 11 ludwiggj  staff   374 Jul 25 22:49 .
+drwxr-xr-x+ 51 ludwiggj  staff  1734 Aug 14 20:50 ..
+-rw-r--r--@  1 ludwiggj  staff  6148 Aug 14 00:37 .DS_Store
+drwxr-xr-x+ 10 ludwiggj  staff   340 Aug 14 00:32 CleanCode
+drwxr-xr-x+ 11 ludwiggj  staff   374 May  3 07:33 ScalaMockExample
+drwxr-xr-x+ 14 ludwiggj  staff   476 Jun 13 17:03 financeGadget
+drwxr-xr-x+ 16 ludwiggj  staff   544 Apr 27 23:41 fnProgramScala
+-rwxrwxrwx@  1 ludwiggj  staff  2641 Apr 25 15:57 gettok.sh
+drwxr-xr-x+ 17 ludwiggj  staff   578 May 29 20:50 java-micro-types
+drwxr-xr-x+ 12 ludwiggj  staff   408 Aug 14 20:50 scalaForImpatient
+drwxr-xr-x+  9 ludwiggj  staff   306 Apr 26 08:45 ssoup
