@@ -10,6 +10,8 @@ trait CanNotifyOnPropertyChange {
 
   val propertyManager: PropertyChangeSupport = new PropertyChangeSupport(this)
 
+  // can't override setLocation(x: double, y: double) in Point2D class,
+  // due to compatibility issues between java double & Scala Double
   def setLocationAndNotify(x: Double, y: Double) {
     val oldX = getX
     val oldY = getY
