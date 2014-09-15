@@ -1,3 +1,4 @@
+// Functions as values
 import scala.math._
 
 val num = 3.14
