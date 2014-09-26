@@ -2,6 +2,7 @@ package ch21.lectures.sec03.take2
 
 import scala.language.postfixOps
 import scala.language.implicitConversions
+import scala.math.sqrt
 
 object Fraction1 {
   def gcd(a: Int, b: Int): Int = if (b == 0) abs(a) else gcd(b, a % b)
@@ -24,5 +25,13 @@ class Fraction1(n: Int, d: Int) {
 
 object Main1 extends App {
   println(s"${Fraction1(3, 6)}")
-  println(s"${3 * Fraction1(3, 6)}")
+
+  // Following uses fraction1_2Double by default
+  import conversions.FractionConversions._
+  println(s"${2 * Fraction1(1, 6)}")
+
+  // Fraction automatically converted to double via implicit
+  // to fulfil type signature of sqrt
+  // (Also stated as type of an expression differs from expected type)
+  println(s"sqrt(1/4) = ${sqrt(Fraction1(1, 4))}")
 }

@@ -28,5 +28,15 @@ class Fraction(n: Int, d: Int) {
 
 object Main extends App {
   println(s"${Fraction(3, 6)}")
+
+  // 3 converted to Fraction via an implicit as type of parameters of * method
+  // don't match the supplied arguments
   println(s"${3 * Fraction(3, 6)}")
+
+  println(s"${Fraction(3,1) * Fraction(6, 1)}")
+
+  println(s"${3 * Fraction(6, 1)}")
+
+  // No implicit conversion used here, as code already compiles without it!
+  println(s"${3 * 6}")
 }

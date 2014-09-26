@@ -10,6 +10,8 @@ class RichFile(val from: File) {
 
 implicit def file2RichFile(from: File) = new RichFile(from)
 
+// File automatically converted to RichFile via an implicit, as
+// read method does not exist on File class
 val contents = new File("./src/main/scala/ch09/lectures/mary.txt").read
 
 
