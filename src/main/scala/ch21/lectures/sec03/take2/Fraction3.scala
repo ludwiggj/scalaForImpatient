@@ -28,8 +28,8 @@ object Main3 extends App {
   println(s"${Fraction3(3, 6)}")
 
   // Import all conversions except fraction3_2Double
-
   import conversions.FractionConversions.{fraction3_2_Double => _, _}
 
-  println(s"${2 * Fraction3(1, 6)}")
+  // Thus int2Fraction3 is used...
+  println(s"2 * Fraction3(1, 6) = ${2 * Fraction3(1, 6)}")
 }

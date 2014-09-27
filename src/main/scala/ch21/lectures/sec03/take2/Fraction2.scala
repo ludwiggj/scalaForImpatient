@@ -19,7 +19,7 @@ class Fraction2(n: Int, d: Int) {
 
   def sign(a: Int) = if (a > 0) 1 else if (a < 0) -1 else 0
 
-  override def toString = s"$num/$den"
+  override def toString = s"$num/$den (Fraction2)"
 
   def *(other: Fraction2) = Fraction2(num * other.num, den * other.den)
 }
@@ -29,5 +29,6 @@ object Main2 extends App {
 
   import conversions.FractionConversions.int2Fraction2
 
-  println(s"${2 * Fraction2(1, 6)}")
+  // Following uses int2Fraction2 by specific import
+  println(s"2 * Fraction2(1, 6) = ${2 * Fraction2(1, 6)}")
 }

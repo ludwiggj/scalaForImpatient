@@ -18,7 +18,7 @@ class Fraction1(n: Int, d: Int) {
 
   def sign(a: Int) = if (a > 0) 1 else if (a < 0) -1 else 0
 
-  override def toString = s"$num/$den"
+  override def toString = s"$num/$den (Fraction1)"
 
   def *(other: Fraction1) = Fraction1(num * other.num, den * other.den)
 }
@@ -28,7 +28,7 @@ object Main1 extends App {
 
   // Following uses fraction1_2Double by default
   import conversions.FractionConversions._
-  println(s"${2 * Fraction1(1, 6)}")
+  println(s"2 * Fraction1(1, 6) = ${2 * Fraction1(1, 6)}")
 
   // Fraction automatically converted to double via implicit
   // to fulfil type signature of sqrt

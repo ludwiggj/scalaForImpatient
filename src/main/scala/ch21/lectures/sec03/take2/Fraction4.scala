@@ -28,14 +28,14 @@ object Main4 extends App {
   import conversions.FractionConversions._
 
   // This works OK - it casts int (7) to double, then uses double2Fraction4
-  println(s"${7 * Fraction4(1, 6)}")
+  println(s"7 * Fraction4(1, 6) = ${7 * Fraction4(1, 6)}")
 
   // This uses fraction4_2_Fraction3
-  println(s"${Fraction4(1, 6) * Fraction3(1, 6)}")
+  println(s"Fraction4(1, 6) * Fraction3(1, 6) = ${Fraction4(1, 6) * Fraction3(1, 6)}")
 
   // This uses fraction4_2_Fraction3
-  println(s"${Fraction3(1, 6) * Fraction4(1, 6)}")
+  println(s"Fraction3(1, 6) * Fraction4(1, 6) = ${Fraction3(1, 6) * Fraction4(1, 6)}")
 
   // This uses fraction3_2_Double
-  println(s"${7.4 * Fraction3(1, 6)}")
+  println(s"7.4 * Fraction3(1, 6) = ${7.4 * Fraction3(1, 6)}")
 }
