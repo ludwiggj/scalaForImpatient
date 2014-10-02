@@ -35,16 +35,29 @@ class Bottom {
   }
 }
 
+// Output of following is:
+// > List(bottom, Replace1)
+
 (new Bottom with Replace1)()
 
 // Replace1's munge is overridden and never runs
+// So output is:
+// > List(bottom, Replace2)
+
 (new Bottom with Replace1 with Replace2)()
+
 
 //Stack1 calls super.munge, which invokes the
 //munge from the trait to the left
+// So output is:
+// > List(bottom, Replace1, Stack1)
+
 (new Bottom with Replace1 with Stack1)()
 
 //Stack2's super.munge called to its superclass,
 // whereas Stack2Parent's super.munge called the
 // trait to the left
+// So output is:
+// List(bottom, Replace1, Stack2Parent, Stack2)
+
 (new Bottom with Replace1 with Stack2)()
