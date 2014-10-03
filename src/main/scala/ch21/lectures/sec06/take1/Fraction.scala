@@ -10,15 +10,18 @@ object Fraction {
   def apply(n: Int, d: Int) = new Fraction(n, d)
 
   implicit def fraction2Double(f: Fraction) = {
-    print(s"(fraction2Double $f) ")
+    print(s"fraction2Double($f) ")
     f.num * 1.0 / f.den
   }
 
   def fraction2OrderedFraction: Fraction => Ordered[Fraction] =
-    (f: Fraction) => new Fraction(f.num, f.den) with Ordered[Fraction] {
-      def compare(that: Fraction): Int = {
-        print("fraction2OrderedFraction.compare ")
-        if (f < that) -1 else if (f > that) 1 else 0
+    (f: Fraction) => {
+      print(s"fraction2OrderedFraction($f) ")
+      new Fraction(f.num, f.den) with Ordered[Fraction] {
+        def compare(that: Fraction): Int = {
+          print(s"fraction2OrderedFraction.compare($f,$that) ")
+          if (f < that) -1 else if (f > that) 1 else 0
+        }
       }
     }
 }
@@ -40,15 +43,19 @@ object Main extends App {
   println("Fraction(1, 2) < Fraction(3, 5) = ...")
   println(Fraction(1, 2) < Fraction(3, 5))
   println()
+
   println("Fraction(1, 2) < Fraction(2, 5) = ...")
   println(Fraction(1, 2) < Fraction(2, 5))
   println()
+
   println("smaller(Fraction(1, 2), Fraction(3, 5))(fraction2OrderedFraction) = ...")
   println(smaller(Fraction(1, 2), Fraction(3, 5))(fraction2OrderedFraction))
   println()
+
   println("smaller(Fraction(1, 2), Fraction(2, 5))(fraction2OrderedFraction) = ...")
   println(smaller(Fraction(1, 2), Fraction(2, 5))(fraction2OrderedFraction))
   println()
+
   println("smaller(Fraction(1, 2), Fraction(1, 2))(fraction2OrderedFraction) = ...")
   println(smaller(Fraction(1, 2), Fraction(1, 2))(fraction2OrderedFraction))
 }
