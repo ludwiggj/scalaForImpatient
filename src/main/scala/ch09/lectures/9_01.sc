@@ -1,6 +1,7 @@
 import scala.io.Source
+import misc.Constants.FILE_ROOT
 
-val homeDir = "./src/main/scala/ch09/lectures/"
+val homeDir = s"$FILE_ROOT/src/main/scala/ch09/lectures/"
 val maryFile = homeDir + "mary.txt"
 val source = Source.fromFile(maryFile, "UTF-8")
 val lineIterator = source.getLines

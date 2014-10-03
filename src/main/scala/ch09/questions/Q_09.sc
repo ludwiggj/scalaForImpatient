@@ -2,6 +2,7 @@
 //   in a given directory and its subdirectories.
 
 import java.io.File
+import misc.Constants.FILE_ROOT
 
 def subdirs(dir: File): Iterator[File] = {
   val children = dir.listFiles.filter(_.isDirectory)
@@ -15,12 +16,12 @@ def currentDirAndSubdirs(dir: File): Iterator[File] = {
 def isAClassFile(f: File) = f.isFile && f.getName.contains(".class")
 
 def displayFileCount(root: File) = {
-  var dirs = currentDirAndSubdirs(root)
+  val dirs = currentDirAndSubdirs(root)
   println (s"Number of class files in [${root.getName}] is ${(dirs flatMap(_.listFiles.filter(isAClassFile(_)))).size}")
 }
 
-displayFileCount(new File("./out"))
-displayFileCount(new File("./out/production/scalaForImpatient/ch08"))
+displayFileCount(new File(s"$FILE_ROOT/out"))
+displayFileCount(new File(s"$FILE_ROOT/out/production/scalaForImpatient/ch08"))
 
 /*
 for (d <- dirs take 5)

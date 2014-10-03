@@ -1,4 +1,5 @@
 import java.io._
+import misc.Constants.FILE_ROOT
 import scala.collection.mutable.ArrayBuffer
 
 class Person(val name: String) extends Serializable {
@@ -20,11 +21,11 @@ println("Fred before saving...")
 fred.description
 fred.friends.map(_.description)
 
-val out = new ObjectOutputStream(new FileOutputStream("./src/main/scala/ch09/lectures/test.obj"))
+val out = new ObjectOutputStream(new FileOutputStream(s"$FILE_ROOT/src/main/scala/ch09/lectures/test.obj"))
 out.writeObject(fred)
 out.close()
 
-val in = new ObjectInputStream(new FileInputStream("./src/main/scala/ch09/lectures/test.obj"))
+val in = new ObjectInputStream(new FileInputStream(s"$FILE_ROOT/src/main/scala/ch09/lectures/test.obj"))
 val savedFred = in.readObject().asInstanceOf[Person]
 in.close()
 

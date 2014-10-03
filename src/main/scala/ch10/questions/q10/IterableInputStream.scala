@@ -1,6 +1,7 @@
 package ch10.questions.q10
 
 import java.io.{FileInputStream, InputStream}
+import misc.Constants.FILE_ROOT
 import scala.language.postfixOps
 
 trait IterableInputStream extends InputStream with Iterable[Byte] {
@@ -11,7 +12,7 @@ trait IterableInputStream extends InputStream with Iterable[Byte] {
 }
 
 object Main extends App {
-  val stream = new FileInputStream("bob.txt") with IterableInputStream
+  val stream = new FileInputStream(s"$FILE_ROOT/bob.txt") with IterableInputStream
   for (b <- stream) print(b.toChar)
   stream.close()
 }

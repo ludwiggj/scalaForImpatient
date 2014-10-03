@@ -6,9 +6,10 @@
 //   ... ...
 
 import java.io._
+import misc.Constants.FILE_ROOT
 import scala.math.pow
 
-val out = new PrintWriter("./src/main/scala/ch09/questions/05_powers.txt")
+val out = new PrintWriter(s"$FILE_ROOT/src/main/scala/ch09/questions/05_powers.txt")
 
 for (i <- 0 to 20) {
   val value = pow(2, i)

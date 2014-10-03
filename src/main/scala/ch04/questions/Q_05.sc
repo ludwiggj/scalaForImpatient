@@ -1,9 +1,10 @@
 //5. Repeat the preceding exercise with a java.util.TreeMap that you adapt to the
 //Scala API.
 
+import misc.Constants.FILE_ROOT
 import scala.collection.JavaConversions.mapAsScalaMap
 import collection.SortedMap
-val f = new java.io.File("./src/main/scala/ch04/questions/myFile.txt")
+val f = new java.io.File(s"$FILE_ROOT/src/main/scala/ch04/questions/myFile.txt")
 val in = new java.util.Scanner(f)
 
 // Adapt a Java treemap so that the keys are automatically sorted

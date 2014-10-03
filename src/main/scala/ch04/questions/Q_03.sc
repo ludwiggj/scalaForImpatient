@@ -5,9 +5,9 @@
 //Or look at Chapter 9 for a Scalaesque way.
 //At the end, print out all words and their counts.
 
-val f = new java.io.File("./src/main/scala/ch04/questions/myFile.txt")
+import misc.Constants.FILE_ROOT
+val f = new java.io.File(s"$FILE_ROOT/src/main/scala/ch04/questions/myFile.txt")
 val in = new java.util.Scanner(f)
-
 // Use an immutable map
 var counts = Map[String, Int]()
 while (in.hasNext()) {

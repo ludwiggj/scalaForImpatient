@@ -1,6 +1,7 @@
 package ch10.questions.q8
 
 import java.io.{FileInputStream, BufferedInputStream, InputStream}
+import misc.Constants.FILE_ROOT
 
 trait Buffered extends InputStream {
   val bufferedStream = new BufferedInputStream(this)
@@ -24,7 +25,7 @@ trait Buffered extends InputStream {
 }
 
 object Main extends App {
-  val unbufferedInput = new FileInputStream("bob.txt")
+  val unbufferedInput = new FileInputStream(s"$FILE_ROOT/bob.txt")
 
   printMaxBytes(unbufferedInput, 5)
   printMaxBytes(unbufferedInput, 7)
@@ -32,7 +33,7 @@ object Main extends App {
 
   unbufferedInput.close()
 
-  val bufferedInput = new FileInputStream("bob.txt") with Buffered
+  val bufferedInput = new FileInputStream(s"$FILE_ROOT/bob.txt") with Buffered
 
   printMaxBytes(bufferedInput, 5)
   bufferedInput.mark(50)

@@ -3,8 +3,9 @@
 //   such strings in a source file.
 
 import scala.io.Source
+import misc.Constants.FILE_ROOT
 
-val source = Source.fromFile("./src/main/scala/ch09/questions/03_words.txt", "UTF-8")
+val source = Source.fromFile(s"$FILE_ROOT/src/main/scala/ch09/questions/03_words.txt", "UTF-8")
 
 val contents = source.mkString
 

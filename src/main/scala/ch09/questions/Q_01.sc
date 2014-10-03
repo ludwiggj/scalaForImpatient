@@ -3,7 +3,8 @@
 
 import java.io.PrintWriter
 import scala.io.{BufferedSource, Source}
-val homeDir = "./src/main/scala/ch09/questions/"
+import misc.Constants.FILE_ROOT
+val homeDir = s"$FILE_ROOT/src/main/scala/ch09/questions/"
 val sourceFile = homeDir + "01_1to10.txt"
 val file: BufferedSource = Source.fromFile(sourceFile, "UTF-8")
 val lines = file.getLines.toArray.reverse

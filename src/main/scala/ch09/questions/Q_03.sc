@@ -2,6 +2,7 @@
 //   than 12 characters to the console. Extra credit if you can do this in a single line.
 
 import scala.io.Source
+import misc.Constants.FILE_ROOT
 
 /*
 val source = Source.fromFile("./ch09/questions/03_words.txt", "UTF-8")
@@ -13,4 +14,4 @@ for (matchString <- wordOfAtLeast10Characters.findAllIn(contents))
 source.close
 */
 // In a single line...
-"""[A-Za-z]{10,}""".r.findAllIn(Source.fromFile("./src/main/scala/ch09/questions/03_words.txt", "UTF-8").mkString).foreach(println(_))
+"""[A-Za-z]{10,}""".r.findAllIn(Source.fromFile(s"$FILE_ROOT/src/main/scala/ch09/questions/03_words.txt", "UTF-8").mkString).foreach(println(_))

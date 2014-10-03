@@ -1,7 +1,9 @@
 //Q4 Repeat the preceding exercise with a sorted map, so that the words are
 //printed in sorted order.
 
-val f = new java.io.File("./src/main/scala/ch04/questions/myFile.txt")
+import misc.Constants.FILE_ROOT
+
+val f = new java.io.File(s"$FILE_ROOT/src/main/scala/ch04/questions/myFile.txt")
 val in = new java.util.Scanner(f)
 
 // Use an immutable map
