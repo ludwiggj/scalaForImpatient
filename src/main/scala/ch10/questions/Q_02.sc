@@ -10,7 +10,6 @@ val pointList = List(
 
 println(new OrderedPoint < new OrderedPoint(0, 2))
 println(new OrderedPoint(0, 1) < new OrderedPoint(-1, 2))
-
 // Following fails with error message...
 //
 // <console>:10: error: diverging implicit expansion for
