@@ -1,18 +1,12 @@
 package com.bt.refactoring;
 
 import static org.junit.Assert.*;
+import static com.bt.refactoring.Fixture.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class CustomerTest {
-	private static final Movie MOVIE_HUNGER_GAMES = new Movie("The Hunger Games", Movie.CHILDRENS);
-	private static final Movie MOVIE_DIVERGENT = new Movie("Divergent", Movie.CHILDRENS);
-	private static final Movie MOVIE_MAZE_RUNNER = new Movie("The Maze Runner", Movie.NEW_RELEASE);
-	private static final Movie MOVIE_GONE_GIRL = new Movie("Gone Girl", Movie.CHILDRENS);
-	private static final Movie MOVIE_EXPENDABLES = new Movie("The Expendables 47", Movie.REGULAR);
-	private static final Movie MOVIE_ET = new Movie("ET", Movie.REGULAR);
-
 	private Customer customer;
 	
 	
@@ -32,16 +26,16 @@ public class CustomerTest {
 	
 	@Test
 	public void testForCustomerWithSeveralRentals() {
-		customer.addRental(new Rental(MOVIE_ET, 3));
-		customer.addRental(new Rental(MOVIE_DIVERGENT, 2));
-		customer.addRental(new Rental(MOVIE_GONE_GIRL, 5));
+		customer.addRental(RENTAL_REGULAR_ET);
+		customer.addRental(RENTAL_CHILDRENS_DIVERGENT);
+		customer.addRental(RENTAL_NEW_RELEASE_GONE_GIRL);
 		
 		String expectedStatement = "Rental Record for Graeme\n"
 				+ "  ET  3.5\n"
 				+ "  Divergent  1.5\n"
-				+ "  Gone Girl  4.5\n"
-				+ "Amount owed is 9.5\n"
-				+ "You earned 3 frequent renter points";
+				+ "  Gone Girl  15.0\n"
+				+ "Amount owed is 20.0\n"
+				+ "You earned 4 frequent renter points";
 		
 		assertEquals(expectedStatement, customer.statement());
 	}
