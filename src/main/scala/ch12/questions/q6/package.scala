@@ -1,6 +1,8 @@
 package ch12.questions
 
 package object q6 {
+  // Tuple tricks!
+
   // Yield input value at which output value of a function is largest, given a sequence of inputs
   // Don't use a loop or recursion
   def largestInput1(fun: (Int) => Int, inputs: Seq[Int]): Int = {
