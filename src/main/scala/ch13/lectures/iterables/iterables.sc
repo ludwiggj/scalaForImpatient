@@ -14,6 +14,7 @@ def workout[T](i: Iterable[T])(implicit predicate: T => Boolean) = {
     (for (it1 <- it; it2 <- it1) yield it2).mkString("<Ta> ", " ", " <dah!>")
   }
 
+  res ++= "workout\n"
   res ++= s"[$i]\n"
   res ++= s"  head [${i.head}]\n"
   res ++= s"  last [${i.last}]\n"
@@ -46,6 +47,10 @@ def workout[T](i: Iterable[T])(implicit predicate: T => Boolean) = {
 }
 def workoutGeneric[T: ClassTag](i: Iterable[T]) = {
   val res = mutable.StringBuilder.newBuilder
+
+  res ++= "workoutGeneric\n"
+  res ++= s"[$i]\n"
+
   val a = new Array[T](i.size)
   i.copyToArray(a)
   res ++= s"  array copy [${a.mkString(", ")}]\n"
@@ -61,374 +66,78 @@ def workoutGeneric[T: ClassTag](i: Iterable[T]) = {
   res
 }
 
+def workoutZip[T](i: Iterable[T], j: Iterable[T]) = {
+  val res = mutable.StringBuilder.newBuilder
 
+  res ++= "workoutZip\n"
+  res ++= s"i=[$i]\nj=[$j]\n"
+  res ++= s"  i zip j ${i zip j}\n"
 
+  res
+}
 
+def workoutNumericZip[T: Numeric, S: Numeric](i: Iterable[T], j: Iterable[S]) = {
+  val res = mutable.StringBuilder.newBuilder
 
+  res ++= "workoutZip\n"
+  res ++= s"i=[$i]\nj=[$j]\n"
+  res ++= s"  i zip j ${i zip j}\n"
+
+  def multiplyUp: ((T, S)) => Double = {
+    pp => implicitly[Numeric[T]].toDouble(pp._1) *
+      implicitly[Numeric[S]].toDouble(pp._2)
+  }
+
+  val costs = (i zip j) map multiplyUp
+  val indexedCosts = costs.zipWithIndex
+
+  res ++= s"      Costs (zip) $costs\n"
+  res ++= s"   Max cost (zip) ${indexedCosts.max}\n"
+  res ++= s"Max cost idx(zip) ${indexedCosts.max._2}\n"
+  res ++= s" Total cost (zip) ${costs.sum}\n"
+
+  val zipAll =
+    i zipAll(j, implicitly[Numeric[T]].one, implicitly[Numeric[S]].one)
+
+  res ++= s"  i zipAll j $zipAll\n"
+
+  val costsWithDefaults = zipAll map multiplyUp
+
+  res ++= s"     Costs (zipAll) $costsWithDefaults\n"
+  res ++= s"Total cost (zipAll) ${costsWithDefaults.sum}\n"
+  res
+}
 
 def workoutNumeric[T: Numeric](i: Iterable[T]) = {
   val res = mutable.StringBuilder.newBuilder
+
+  res ++= "workoutNumeric\n"
+  res ++= s"[$i]\n"
   res ++= s"  sum [${i.sum}]\n"
   res ++= s"  product [${i.product}]\n"
   res ++= s"  max [${i.max}]\n"
   res ++= s"  min [${i.min}]\n"
-
   // See http://stackoverflow.com/questions/2235332/scala-way-to-define-functions-accepting-a-list-of-different-numeric-types
   res ++= s"  reduceLeft(x - y) [${i.reduceLeft((l, r) => implicitly[Numeric[T]].minus(l, r))}]\n"
   res ++= s"  reduceRight(x - y) [${i.reduceRight((l, r) => implicitly[Numeric[T]].minus(l, r))}]\n"
-
-  //TODO - fold left, fold right
   res
 }
-
-def workoutMap(m: Map[Int, Int]) = {
-  val res = mutable.StringBuilder.newBuilder
-
-  res ++= s"[$m]\n"
-
-  res ++= s" foldLeft(0)(sum values) ${m.foldLeft(0)({
-    case (a, (k, v)) => a + v
-  })}\n"
-
-  res ++= s" foldRight(0)(sum values) ${m.foldRight(0)({
-    case ((k, v), a) => a + v
-  })}\n"
-
-  val start = ""
-
-  // Type of result can be different from types in the map
-  res ++= s" foldLeft(mtString)(add values) ${m.foldLeft(start)({
-    case (a, (k, v)) => a + v
-  })}\n"
-
-  res ++= s" foldRight(mtString)(add values) ${m.foldRight(start)({
-    case ((k, v), a) => a + v
-  })}\n"
-
-  // Tuple tricks!
-  def addTuples(t1: (Int, Int), t2: (Int, Int)) = (t1._1 + t2._1, t1._2 + t2._2)
-
-  res ++= s" reduceLeft((x1 + y1, x2 + y2)) ${m.reduceLeft((l, r) => addTuples(l, r))}\n"
-  res ++= s" reduceRight((x1 + y1, x2 + y2)) ${m.reduceRight((l, r) => addTuples(l, r))}\n"
-
-  val interimRes = mutable.StringBuilder.newBuilder
-
-  res ++= s" reduceLeft((x1 + x2, y1 + y2)) ${
-    (m.reduceLeft _) {
-      case ((x1, x2), (y1, y2)) => {
-        interimRes ++= s"  (x1: $x1, x2: $x2) (y1: $y1, y2: $y2) = ${(x1 + x2, y1 + y2)}\n"
-        (x1 + x2, y1 + y2)
-      }
-    }
-  }\n"
-
-  res ++= interimRes
-
-  interimRes.clear
-
-  res ++= s" reduceRight((x1 + x2, y1 + y2)) ${
-    (m.reduceRight _) {
-      case ((x1, x2), (y1, y2)) => {
-        interimRes ++= s"  (x1: $x1, x2: $x2) (y1: $y1, y2: $y2) = ${(x1 + x2, y1 + y2)}\n"
-        (x1 + x2, y1 + y2)
-      }
-    }
-  }\n"
-  res ++= interimRes
-  res
-}
-val list = List(1, 2, 3, 4, 5, 6)
-println(workout(list) ++= workoutNumeric(list) ++= workoutGeneric(list))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+val list = List[Int](1, 2, 3, 4, 5, 6)
+println(workout(list))
+println(workoutNumeric(list))
+println(workoutGeneric(list))
+val prices: List[Double] = List(2.5, 1.2, 0.9, 5.1, 2.6, 19.1)
+val listQuantities = list
+println(workoutNumericZip(prices, listQuantities))
+println(workoutNumericZip(prices, listQuantities drop 3))
 val set = Set(1, 2, 3, 4, 5, 6)
-println(workout(set) ++= workoutNumeric(set) ++= workoutGeneric(set))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+val setQuantities = set
+println(workout(set))
+println(workoutNumeric(set))
+println(workoutGeneric(set))
+println(workoutNumericZip(prices, setQuantities))
+println(workoutNumericZip(prices, setQuantities dropRight 4))
 val map = Map(1 -> 1, 2 -> 2, 3 -> 3, 6 -> 4, 5 -> 8, 12 -> 1)
-
-
-println(workout(map) ++= workoutGeneric(map) ++= workoutMap(map))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+println(workout(map))
+println(workoutGeneric(map))
+println(workoutZip(map, map))

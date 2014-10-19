@@ -25,12 +25,18 @@ def mapWorkout(m: Map[String, Int]) = {
 
 val list = List("Peter", "Paul", "Mary")
 println(workout(list))
-
 val set = Set("Peter", "Paul", "Mary")
 println(workout(set))
-
 val map = Map("Peter" -> 1, "Paul" -> 2, "Mary" -> 3)
-
 println(mapWorkout(map))
+println("collect:" + "-3+4".collect { case '+' => 6; case '-' => 9 })
 
-"-3+4".collect { case '+' => 6; case '-' => 9 }
+val freq = scala.collection.mutable.Map[Char, Int]()
+for (c <- "Mississippi") freq(c) = freq.getOrElse(c, 0) + 1
+println(s"Frequency of letter in Mississippi (for): $freq")
+
+println(s"Frequency of letter in Mississippi (foldLeft): ${
+  (Map[Char, Int]() /: "Mississippi") {
+    (m, c) => m + (c -> (m.getOrElse(c, 0) + 1))
+  }
+}")

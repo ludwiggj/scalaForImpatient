@@ -5,17 +5,6 @@ val a = 9 :: List(4, 2)
 // Thus following is invalid
 // :: is not a member of int
 // (((9 :: 4) :: 2) :: Nil)
-def sum(lst: List[Int]): Int =
-  if (lst == Nil) 0 else lst.head + sum(lst.tail)
-
-def sum2(lst: List[Int]): Int = lst match {
-  case Nil => 0
-  case h :: t => h + sum(t)
-}
-
-sum(a)
-sum2(a)
-a.sum
 
 // Mutable list
 import scala.collection.mutable.LinkedList
@@ -47,9 +36,9 @@ def makeListNoMoreThanTwoElementsLong(lst: LinkedList[Int]): LinkedList[Int] = {
   lst
 }
 
-println(setEveryNegativeElementToZero(LinkedList(1, -2, 7, -9)))
-println(removeEverySecondElementFromList(LinkedList(1, -2, 7, -9)))
-println(makeListNoMoreThanTwoElementsLong(LinkedList()))
-println(makeListNoMoreThanTwoElementsLong(LinkedList(1)))
-println(makeListNoMoreThanTwoElementsLong(LinkedList(1, 2)))
-println(makeListNoMoreThanTwoElementsLong(LinkedList(4, 3, 2, 1)))
+setEveryNegativeElementToZero(LinkedList(1, -2, 7, -9))
+removeEverySecondElementFromList(LinkedList(1, -2, 7, -9))
+makeListNoMoreThanTwoElementsLong(LinkedList())
+makeListNoMoreThanTwoElementsLong(LinkedList(1))
+makeListNoMoreThanTwoElementsLong(LinkedList(1, 2))
+makeListNoMoreThanTwoElementsLong(LinkedList(4, 3, 2, 1))
