@@ -1,7 +1,5 @@
 package ch13.questions
 
-import java.util.concurrent.atomic.AtomicReference
-
 import misc.Constants._
 
 import scala.collection.{SortedMap, mutable, Map}
