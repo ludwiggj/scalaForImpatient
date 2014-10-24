@@ -23,6 +23,10 @@ Map(1 -> 1) ++: Map(2 -> 2)
 Map(1 -> 1) -- Set(1)
 Map(1 -> 1, 2 -> 2) -- List(2, 4)
 
+// Updating existing entry in an immutable map
+val x = Map('c' -> 1)
+x + ('c' -> 2)
+
 // Mutable operations
 import scala.collection.mutable
 
