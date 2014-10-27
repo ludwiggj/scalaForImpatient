@@ -7,29 +7,20 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CustomerTest {
+	private final double ERROR_DELTA = 0.1;
 	private Customer customer;
-	
 	
 	@Before
 	public void setUp() {
 		customer = new Customer("Graeme");
-	}
-
-	@Test
-	public void testForCustomerWithNoRentals() {
-		String expectedStatement = "Rental Record for Graeme\n"
-				+ "Amount owed is 0.0\n"
-				+ "You earned 0 frequent renter points";
 		
-		assertEquals(expectedStatement, customer.statement());
+		customer.addRental(RENTAL_REGULAR_ET_FOR_3_DAYS);
+		customer.addRental(RENTAL_CHILDRENS_DIVERGENT_FOR_2_DAYS);
+		customer.addRental(RENTAL_NEW_RELEASE_GONE_GIRL_FOR_5_DAYS);
 	}
 	
 	@Test
-	public void testForCustomerWithSeveralRentals() {
-		customer.addRental(RENTAL_REGULAR_ET);
-		customer.addRental(RENTAL_CHILDRENS_DIVERGENT);
-		customer.addRental(RENTAL_NEW_RELEASE_GONE_GIRL);
-		
+	public void shouldGiveCorrectStatementForCustomerWithRentals() {
 		String expectedStatement = "Rental Record for Graeme\n"
 				+ "  ET  3.5\n"
 				+ "  Divergent  1.5\n"
