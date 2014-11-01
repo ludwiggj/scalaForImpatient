@@ -30,21 +30,4 @@ public class CustomerTest {
 		
 		assertEquals(expectedStatement, customer.statement());
 	}
-	
-	// Step01: Three new tests to verify the getCharge() method
-	//         extracted from the statement method
-	@Test
-	public void shouldChargeCorrectAmountForChildrensFilmTwoDayRental() {
-		assertEquals(1.5, customer.getCharge(RENTAL_CHILDRENS_DIVERGENT_FOR_2_DAYS), ERROR_DELTA);
-	}
-
-	@Test
-	public void shouldChargeCorrectAmountForRegularFilmThreeDayRental() {
-		assertEquals(3.5, customer.getCharge(RENTAL_REGULAR_ET_FOR_3_DAYS), ERROR_DELTA);
-	}
-
-	@Test
-	public void shouldChargeCorrectAmountForNewReleaseFiveDayRental() {
-		assertEquals(15.0, customer.getCharge(RENTAL_NEW_RELEASE_GONE_GIRL_FOR_5_DAYS), ERROR_DELTA);
-	}
 }
