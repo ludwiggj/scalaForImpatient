@@ -31,8 +31,8 @@ public class CustomerTest {
 		assertEquals(expectedStatement, customer.statement());
 	}
 	
-	// STEP_01: Three new tests to verify the getCharge() method
-	//          extracted from the statement method
+	// Step01: Three new tests to verify the getCharge() method
+	//         extracted from the statement method
 	@Test
 	public void shouldChargeCorrectAmountForChildrensFilmTwoDayRental() {
 		assertEquals(1.5, customer.getCharge(RENTAL_CHILDRENS_DIVERGENT_FOR_2_DAYS), ERROR_DELTA);

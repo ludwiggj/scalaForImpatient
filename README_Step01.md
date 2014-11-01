@@ -4,7 +4,7 @@ refactoringMovies (Step01)
 # Code Changes
 
 All code changes made in this step have been commented with the
-word **STEP_01**. Thus you can easily identify the changes by searching the code within your IDE, or [diffing the code using git](http://stackoverflow.com/questions/1552340/show-all-changed-files-between-two-git-commits).
+word **Step01**. Thus you can easily identify the changes by searching the code within your IDE, or [diffing the code using git](http://stackoverflow.com/questions/1552340/show-all-changed-files-between-two-git-commits).
 
 # Description
 

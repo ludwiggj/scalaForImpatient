@@ -32,8 +32,8 @@ public class Customer {
 
 			Rental each = enumeratedRentals.nextElement();
 
-			// STEP_01: Just call the extracted method getCharge()
-			//          to calculate the charge for a single rental
+			// Step01: Just call the extracted method getCharge()
+			//         to calculate the charge for a single rental
 			thisAmount = getCharge(each);
 
 			// add frequent renter points
@@ -58,8 +58,8 @@ public class Customer {
 		return result;
 	}
 
-	// STEP_01: Method extracted from statement method to
-	//          calculate the charge for a single rental
+	// Step01: Method extracted from statement method to
+	//         calculate the charge for a single rental
 	public double getCharge(Rental each) {
 		double thisAmount = 0;
 
