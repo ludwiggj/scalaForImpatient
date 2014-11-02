@@ -52,8 +52,6 @@ public class Customer {
 		return totalAmount;
 	}
 
-	// Step06: Code to calculate total frequent renter
-	//         points extracted into a separate method
 	public int getTotalFrequentRenterPoints() {
 		int frequentRenterPoints = 0;
 

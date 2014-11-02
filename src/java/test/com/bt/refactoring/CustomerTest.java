@@ -37,8 +37,6 @@ public class CustomerTest {
 		assertEquals(20.0, customer.getTotalCharge(), ERROR_DELTA);
 	}
 
-	// Step06: Test for newly extracted method to calculate
-	//         total frequent renter points for customer
 	@Test
 	public void shouldCalculateTotalFrequentRenterPointsForCustomerWithRentals() {
 		assertEquals(4, customer.getTotalFrequentRenterPoints());
