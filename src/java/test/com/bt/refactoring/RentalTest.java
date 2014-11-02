@@ -22,7 +22,6 @@ public class RentalTest {
 		assertEquals(15.0, RENTAL_NEW_RELEASE_GONE_GIRL_FOR_5_DAYS.getCharge(), ERROR_DELTA);
 	}
 	
-	// Step03: New tests for Rental.getFrequentRenterPoints() method
 	@Test
 	public void shouldGetOneFrequentRenterPointWhenRentANewReleaseForOneDay() {
 		assertEquals(1, new Rental(MOVIE_NEW_RELEASE_GONE_GIRL, 1).getFrequentRenterPoints());

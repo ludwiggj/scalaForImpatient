@@ -34,8 +34,6 @@ public class Customer {
         
 			thisAmount = rental.getCharge();
 			
-			// Step03: Moved code to calculate frequent renter points
-			//         for a single rental into the Rental class
 			frequentRenterPoints += rental.getFrequentRenterPoints();
 
 			// show figures for this rental
