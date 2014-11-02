@@ -28,9 +28,9 @@ See **README_Step01.md** for an explanation of the refactoring changes that have
 * **StepN**  
 See **README_StepN.md** for an explanation of the refactoring changes that have been made in this step, and the reasoning behind them.
 
-After cloning the code you can move to a specific step in the refactoring process by checking out the relevant tag e.g. to move from Start to Step01 from the git command line:
+After cloning the code you can move to a specific step in the refactoring process by checking out the relevant tag e.g. to move to the **Start** position, from the git command line:
 
-    git checkout Step01
+    git checkout Start
 
 Coming Next...
 ============== 

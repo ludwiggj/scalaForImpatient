@@ -9,8 +9,6 @@ public class Rental {
 		this.daysRented = daysRented;
 	}
 
-	// Step04: Removed getDaysRented() method, as no longer called
-
 	public Movie getMovie() {
 		return movie;
 	}
@@ -39,7 +37,6 @@ public class Rental {
 		return thisAmount;
 	}
 
-	// Step04: Simplified implementation
 	public int getFrequentRenterPoints() {
 		// add bonus for a two day new release rental
 		if ((movie.getPriceCode() == Movie.NEW_RELEASE) && daysRented > 1) {
