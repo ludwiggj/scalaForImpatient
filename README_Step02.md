@@ -21,7 +21,7 @@ Finally, we note that now **getCharge()** is a method of **Rental**, it no longe
 Coming Next...
 ==============
 
-**Step03**, in which we...
+**Step03**, in which we spot another case of [feature envy](http://sourcemaking.com/refactoring/feature-envy), and extract code to calculate the frequent renter points for a single rental.
 
 To get the code, check out the **Step03** tag e.g. from the git command line:
 
