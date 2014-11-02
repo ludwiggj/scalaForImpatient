@@ -15,7 +15,7 @@ We added some more tests to **RentalTest** to test the new method **Rental.getFr
 Coming Next...
 ==============
 
-**Step04**, in which...
+**Step04**, in which we remove a method from **Rental** which is no longer used, and simplify the implementation of the **Rental.getFrequentRenterPoints()** method.
 
 To get the code, check out the **Step04** tag e.g. from the git command line:
 
