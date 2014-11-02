@@ -32,10 +32,15 @@ public class CustomerTest {
 		assertEquals(expectedStatement, customer.statement());
 	}
 	
-	// Step05: Test for newly extracted method to calculate
-	//         total charge for all rentals
 	@Test
 	public void shouldCalculateTotalChargeForCustomerWithRentals() {
 		assertEquals(20.0, customer.getTotalCharge(), ERROR_DELTA);
+	}
+
+	// Step06: Test for newly extracted method to calculate
+	//         total frequent renter points for customer
+	@Test
+	public void shouldCalculateTotalFrequentRenterPointsForCustomerWithRentals() {
+		assertEquals(4, customer.getTotalFrequentRenterPoints());
 	}
 }
