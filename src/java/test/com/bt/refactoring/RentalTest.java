@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 import static com.bt.refactoring.Fixture.*;
 import org.junit.Test;
 
-// Step02: Tests relocated from CustomerTest
 public class RentalTest {
 	private final double ERROR_DELTA = 0.1;
 	
@@ -21,5 +20,21 @@ public class RentalTest {
 	@Test
 	public void shouldChargeCorrectAmountForNewReleaseFiveDayRental() {
 		assertEquals(15.0, RENTAL_NEW_RELEASE_GONE_GIRL_FOR_5_DAYS.getCharge(), ERROR_DELTA);
+	}
+	
+	// Step03: New tests for Rental.getFrequentRenterPoints() method
+	@Test
+	public void shouldGetOneFrequentRenterPointWhenRentANewReleaseForOneDay() {
+		assertEquals(1, new Rental(MOVIE_NEW_RELEASE_GONE_GIRL, 1).getFrequentRenterPoints());
+	}
+
+	@Test
+	public void shouldGetTwoFrequentRenterPointsWhenRentANewReleaseForTwoDays() {
+		assertEquals(2, new Rental(MOVIE_NEW_RELEASE_GONE_GIRL, 2).getFrequentRenterPoints());
+	}
+
+	@Test
+	public void shouldGetTwoFrequentRenterPointsWhenRentANewReleaseForFiveDays() {
+		assertEquals(2, new Rental(MOVIE_NEW_RELEASE_GONE_GIRL, 5).getFrequentRenterPoints());
 	}
 }

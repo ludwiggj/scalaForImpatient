@@ -30,18 +30,13 @@ public class Customer {
 		while (enumeratedRentals.hasMoreElements()) {
 			double thisAmount = 0;
 
-			// Step02: Renamed 'each' variable to 'rental'
 			Rental rental = enumeratedRentals.nextElement();
         
 			thisAmount = rental.getCharge();
-
-			// add frequent renter points
-			frequentRenterPoints++;
-
-			// add bonus for a two day new release rental
-			if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE)
-					&& rental.getDaysRented() > 1)
-				frequentRenterPoints++;
+			
+			// Step03: Moved code to calculate frequent renter points
+			//         for a single rental into the Rental class
+			frequentRenterPoints += rental.getFrequentRenterPoints();
 
 			// show figures for this rental
 			result += "  " + rental.getMovie().getTitle() + "  "

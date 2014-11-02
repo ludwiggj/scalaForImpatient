@@ -7,7 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CustomerTest {
-	private final double ERROR_DELTA = 0.1;
 	private Customer customer;
 	
 	@Before
