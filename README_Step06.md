@@ -10,13 +10,13 @@ word **Step06**. Thus you can easily identify the changes by searching the code 
 
 In step 5 we extracted a method **getTotalCharge()** from the main loop in the **Customer.statement()** method.
 
-We now finish the process in this step, extracting a method **getTotalFrequentRenterPoints()** to calculate the total rental points for a customer.
+We now finish the process in this step, extracting a method **getTotalFrequentRenterPoints()** to calculate the total renter points for a customer.
 
 If we consider the effect of extracting the **getTotalCharge()** and **getTotalFrequentRenterPoints()** methods from the **Customer.statement()** method:
 
 * We now have more code; but that's OK, as the code is easier for humans to read and understand.
 
-* The code will execute more slowly, since it will iterate the collection of rentals twice to calculate the total charge and total frequent renter points, rather than once. However, the clarity of the code is more important at this stage; we should not optimise the code prematurely(http://c2.com/cgi/wiki?PrematureOptimization).
+* The code will execute more slowly, since it will iterate the collection of rentals twice to calculate the total charge and total frequent renter points, rather than once. However, the clarity of the code is more important at this stage; we should not [optimise the code prematurely](http://c2.com/cgi/wiki?PrematureOptimization).
 
 Coming Next...
 ==============
