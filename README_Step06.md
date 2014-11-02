@@ -21,7 +21,7 @@ If we consider the effect of extracting the **getTotalCharge()** and **getTotalF
 Coming Next...
 ==============
 
-**Step07**, in which we realise that the **Rental.getCharge()** method really belongs in the **Movie** class.
+**Step07**, in which we realise that the **Rental.getCharge()** and **Rental.getFrequentRenterPoints()** methods really belong in the **Movie** class.
 
 To get the code, check out the **Step07** tag e.g. from the git command line:
 
