@@ -1,9 +1,7 @@
 package com.bt.refactoring;
 
-import java.util.Enumeration;
 import java.util.Vector;
 
-// Step09: New type to represent Rentals
 public class Rentals {
 
 	private Vector<Rental> rentals = new Vector<>();
@@ -15,13 +13,11 @@ public class Rentals {
 	public String getRentalStatement() {
 		String result = "";
 
-		Enumeration<Rental> enumeratedRentals = rentals.elements();
-		while (enumeratedRentals.hasMoreElements()) {
-			Rental rental = enumeratedRentals.nextElement();
-
-			// show figures for this rental
-			result += "  " + rental.getMovie().getTitle() + "  "
-					+ String.valueOf(rental.getCharge()) + "\n";
+		// Step10: Simplified loop
+		for (Rental rental: rentals) {
+			// Step10: Now delegate display of rental
+			//         to Rental.toString() method
+			result += "  " + rental + "\n";
 		}
 		return result;
 	}
@@ -32,31 +28,23 @@ public class Rentals {
 				+ " frequent renter points";
 	}
 	
-	// Step09: Method is private as it is only used to generate
-	//         rental totals statement
 	private double getTotalCharge() {
 		double totalAmount = 0;
 
-		Enumeration<Rental> enumeratedRentals = rentals.elements();
-
-		while (enumeratedRentals.hasMoreElements()) {
-			Rental rental = enumeratedRentals.nextElement();
+		// Step10: Simplified loop
+		for (Rental rental: rentals) {
 			totalAmount += rental.getCharge();
 		}
 		return totalAmount;
 	}
 
-	// Step09: Method is private as it is only used to generate
-	//         rental totals statement
 	private int getTotalFrequentRenterPoints() {
-		int frequentRenterPoints = 0;
+		int totalFrequentRenterPoints = 0;
 
-		Enumeration<Rental> enumeratedRentals = rentals.elements();
-
-		while (enumeratedRentals.hasMoreElements()) {
-			Rental rental = enumeratedRentals.nextElement();
-			frequentRenterPoints += rental.getFrequentRenterPoints();
+		// Step10: Simplified loop
+		for (Rental rental: rentals) {
+			totalFrequentRenterPoints += rental.getFrequentRenterPoints();
 		}
-		return frequentRenterPoints;
+		return totalFrequentRenterPoints;
 	}
 }

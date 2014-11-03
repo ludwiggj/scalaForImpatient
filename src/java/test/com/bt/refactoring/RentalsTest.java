@@ -6,7 +6,6 @@ import static com.bt.refactoring.Fixture.*;
 import org.junit.Before;
 import org.junit.Test;
 
-// Step09: Relevant methods moved here from CustomerTest
 public class RentalsTest {
 	
 	private Rentals rentals;

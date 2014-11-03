@@ -9,9 +9,7 @@ public class Rental {
 		this.daysRented = daysRented;
 	}
 
-	public Movie getMovie() {
-		return movie;
-	}
+	// Step10: Removed getMovie() method
 
 	public double getCharge() {
 		return movie.getCharge(daysRented);
@@ -19,5 +17,11 @@ public class Rental {
 
 	public int getFrequentRenterPoints() {
 		return movie.getFrequentRenterPoints(daysRented);
+	}
+	
+	// Step10: Method to display rental details
+	@Override
+	public String toString() {
+		return movie.getTitle() + "  " + getCharge();
 	}
 }
