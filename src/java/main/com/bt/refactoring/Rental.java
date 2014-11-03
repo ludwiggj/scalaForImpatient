@@ -13,12 +13,10 @@ public class Rental {
 		return movie;
 	}
 
-	// Step07: Now delegate call to movie.getCharge()
 	public double getCharge() {
 		return movie.getCharge(daysRented);
 	}
 
-	// Step07: Now delegate call to movie.getFrequentRenterPoints()
 	public int getFrequentRenterPoints() {
 		return movie.getFrequentRenterPoints(daysRented);
 	}

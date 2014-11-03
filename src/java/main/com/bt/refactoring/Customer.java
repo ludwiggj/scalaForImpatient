@@ -16,27 +16,42 @@ public class Customer {
 		this.rentals.addElement(arg);
 	}
 
-	public String getName() {
-		return name;
+	// Step08: Removed getName, as it is no longer called
+
+	// Step08: Extracted methods from statement to
+	//         make it easier to understand.
+	public String statement() {
+		return getStatementHeader()
+				+ getRentalStatement()
+				+ getStatementTotals();
 	}
 
-	public String statement() {
-		Enumeration<Rental> enumeratedRentals = rentals.elements();
-		String result = "Rental Record for " + getName() + "\n";
+	// Step08: New method to generate statement header
+	public String getStatementHeader() {
+		return "Rental Record for " + name + "\n";
+	}
+	
+	// Step08: New method to return statement of
+	//         all rentals together with charges
+	public String getRentalStatement() {
+		String result = "";
 
+		Enumeration<Rental> enumeratedRentals = rentals.elements();
 		while (enumeratedRentals.hasMoreElements()) {
 			Rental rental = enumeratedRentals.nextElement();
-        
+
 			// show figures for this rental
 			result += "  " + rental.getMovie().getTitle() + "  "
 					+ String.valueOf(rental.getCharge()) + "\n";
 		}
-
-		// add footer lines
-		result += "Amount owed is " + getTotalCharge() + "\n";
-		result += "You earned " + getTotalFrequentRenterPoints()
+		return result;
+	}
+	
+	// Step08: New method to display statement totals
+	public String getStatementTotals() {
+		String result = "Amount owed is " + getTotalCharge() + "\n"
+				+ "You earned " + getTotalFrequentRenterPoints()
 				+ " frequent renter points";
-
 		return result;
 	}
 
@@ -47,7 +62,7 @@ public class Customer {
 
 		while (enumeratedRentals.hasMoreElements()) {
 			Rental rental = enumeratedRentals.nextElement();
-			totalAmount += rental.getCharge();			
+			totalAmount += rental.getCharge();
 		}
 		return totalAmount;
 	}

@@ -25,7 +25,6 @@ public class Movie {
 		return title;
 	}
 
-	// Step07: Method relocated from Rental class
 	public double getCharge(int daysRented) {
 		double thisAmount = 0;
 
@@ -50,7 +49,6 @@ public class Movie {
 		return thisAmount;
 	}
 	
-	// Step07: Method relocated from Rental class
 	public int getFrequentRenterPoints(int daysRented) {
 		// add bonus for a two day new release rental
 		if ((priceCode == Movie.NEW_RELEASE) && daysRented > 1) {
