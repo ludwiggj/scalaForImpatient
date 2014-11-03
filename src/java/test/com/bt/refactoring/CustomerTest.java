@@ -7,8 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CustomerTest {
-	private final double ERROR_DELTA = 0.1;
-	
 	private Customer customer;
 	
 	@Before
@@ -30,15 +28,5 @@ public class CustomerTest {
 				+ "You earned 4 frequent renter points";
 		
 		assertEquals(expectedStatement, customer.statement());
-	}
-	
-	@Test
-	public void shouldCalculateTotalChargeForCustomerWithRentals() {
-		assertEquals(20.0, customer.getTotalCharge(), ERROR_DELTA);
-	}
-
-	@Test
-	public void shouldCalculateTotalFrequentRenterPointsForCustomerWithRentals() {
-		assertEquals(4, customer.getTotalFrequentRenterPoints());
 	}
 }
