@@ -13,10 +13,7 @@ public class Rentals {
 	public String getRentalStatement() {
 		String result = "";
 
-		// Step10: Simplified loop
 		for (Rental rental: rentals) {
-			// Step10: Now delegate display of rental
-			//         to Rental.toString() method
 			result += "  " + rental + "\n";
 		}
 		return result;
@@ -31,7 +28,6 @@ public class Rentals {
 	private double getTotalCharge() {
 		double totalAmount = 0;
 
-		// Step10: Simplified loop
 		for (Rental rental: rentals) {
 			totalAmount += rental.getCharge();
 		}
@@ -41,7 +37,6 @@ public class Rentals {
 	private int getTotalFrequentRenterPoints() {
 		int totalFrequentRenterPoints = 0;
 
-		// Step10: Simplified loop
 		for (Rental rental: rentals) {
 			totalFrequentRenterPoints += rental.getFrequentRenterPoints();
 		}

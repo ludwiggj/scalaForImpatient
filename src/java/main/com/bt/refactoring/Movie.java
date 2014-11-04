@@ -1,60 +1,29 @@
 package com.bt.refactoring;
 
 public class Movie {
-	public static final int REGULAR = 0;
-	public static final int NEW_RELEASE = 1;
-	public static final int CHILDRENS = 2;
-
 	private String title;
-	private int priceCode;
+	
+	// Step11: Replaced integer priceCode with movie category
+	private MovieCategory category;
 
-	public Movie(String title, int priceCode) {
+	public Movie(String title, MovieCategory movieCategory) {
 		this.title = title;
-		this.priceCode = priceCode;
+		this.category = movieCategory;
 	}
 
-	public int getPriceCode() {
-		return priceCode;
-	}
-
-	public void setPriceCode(int arg) {
-		priceCode = arg;
-	}
+	// Step11: Removed getPriceCode() && setPriceCode()
 
 	public String getTitle() {
 		return title;
 	}
 
+	// Step11: Delegate call to movie category
 	public double getCharge(int daysRented) {
-		double thisAmount = 0;
-
-		switch (priceCode) {
-		case Movie.REGULAR:
-			thisAmount += 2;
-			if (daysRented > 2)
-				thisAmount += (daysRented - 2) * 1.5;
-			break;
-
-		case Movie.NEW_RELEASE:
-			thisAmount += daysRented * 3;
-			break;
-
-		case Movie.CHILDRENS:
-			thisAmount += 1.5;
-			if (daysRented > 3)
-				thisAmount += (daysRented - 3) * 1.5;
-			break;
-
-		}
-		return thisAmount;
+		return category.getCharge(daysRented);
 	}
 	
+	// Step11: Delegate call to movie category
 	public int getFrequentRenterPoints(int daysRented) {
-		// add bonus for a two day new release rental
-		if ((priceCode == Movie.NEW_RELEASE) && daysRented > 1) {
-			return 2;
-		} else {
-			return 1;
-		}
+		return category.getFrequentRenterPoints(daysRented);
 	}
 }
