@@ -1,3 +1,5 @@
+import java.io.File
+
 import scala.runtime.RichInt
 
 // Type constraints
@@ -36,3 +38,41 @@ new Pairy(42, 15)
 
 // Error: Cannot prove that Int =:= String.
 // new Pairy(42, "15")
+
+// Introduce type constraint on specific methods
+class Mary[T](val first: T, val second: T) {
+  def smaller(implicit ev: T => Comparable[T]) = if (first.compareTo(second) < 0) first else second
+  def larger(implicit ev: T => Comparable[T]) = if (first.compareTo(second) >= 0) first else second
+  def getOrder(implicit ev: T => Comparable[T]) = s"$smaller $larger"
+  override def toString = s"1 [$first] 2 [$second]"
+}
+
+val v = new Mary(231, 71)
+v.getOrder
+
+val x = new Mary(new File("a.txt"), new File("b.txt"))
+x.getOrder
+x.smaller
+x.larger
+
+class Orange {}
+val zz = new Mary(new Orange(), new Orange())
+
+// Error: No implicit view available from A$A64.this.Orange => Comparable[A$A64.this.Orange].
+// zz.smaller
+// zz.larger
+
+// Another type constraint example, orNull method
+
+val friends = Map("Fred" -> "Barney")
+
+val friendOpt = friends.get("Wilma")
+
+val friendOrNull = friendOpt.orNull
+
+val friendsAges = Map("Fred" -> 22, "Barney" -> 34)
+
+val friendsAgesOpt: Option[Int] = friendsAges.get("Fred")
+
+// Error: Cannot prove that Null <:< Int.
+// val friendsAgesNull = friendsAgesOpt.orNull
