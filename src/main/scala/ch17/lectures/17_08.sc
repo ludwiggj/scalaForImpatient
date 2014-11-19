@@ -76,3 +76,41 @@ val friendsAgesOpt: Option[Int] = friendsAges.get("Fred")
 
 // Error: Cannot prove that Null <:< Int.
 // val friendsAgesNull = friendsAgesOpt.orNull
+
+def firstLast[A, C <: Iterable[A]](it: C) = (it.head, it.last)
+
+// Error: inferred type arguments [Nothing,List[Int]] do not conform to method firstLast's type parameter bounds [A,C <: Iterable[A]]
+// firstLast(List(1, 2, 3))
+
+def firstLast2[A, C](it: C)(implicit ev: C <:< Iterable[A]) = (it.head, it.last)
+
+firstLast2(List(1, 2, 3))
+
+def firstLastSimple[A](it: Iterable[A]) = (it.head, it.last)
+
+firstLastSimple(List(2, 4, 6, 8))
+firstLastSimple(List("This", 4, 6, 8))
+
+// Corresponds example
+
+val a = Array("Hello", "World")
+val b = Array("hello", "world")
+
+a.corresponds(b)(_.equalsIgnoreCase(_))
+
+// Definition of corresponds...
+// A    the element type of the collection
+// def corresponds[B](that: GenSeq[B])(p: (A,B) => Boolean): Boolean
+
+// Note: IntelliJ knows that type of curried parameter is:
+// p: (String, B) => Boolean
+// And also infers that in the following case that it is:
+// p: (String, Int) => Boolean
+Array("Hello", "Fred").corresponds(Array(5, 4))(_.length == _)
+
+// Making the curried parameter more explicit...
+def comparer: (String, Int) => Boolean = {
+  _.length == _
+}
+
+Array("Hello", "Fred").corresponds(Array(5, 4))(comparer)
