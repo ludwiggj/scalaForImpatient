@@ -13,10 +13,8 @@ p2.smaller
 
 // Now introduce Person and Student
 // Person is superclass of Student
-class Person(val name: String) {
-  override def toString = s"$name"
-}
-class Student(name: String) extends Person(name)
+
+import ch17.lectures.{Person, Student}
 
 // ========= Pairy ============
 
@@ -46,6 +44,7 @@ theShop.replaceFirst(new Student("Mickey"))
 // ========= Hairy ============
 
 // Now type of item that replaces first item can be a supertype of existing item
+
 // This is a Lower bound
 class Hairy[T](val first: T, val second: T) {
   def replaceFirst[R >: T](newFirst: R) = new Hairy(newFirst, second)
