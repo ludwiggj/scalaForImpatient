@@ -15,7 +15,7 @@ class SmallCompany extends BigCompany {
   override def noOfEmployees = 25
 }
 
-object Main extends App {
+object AnotherMain extends App {
   // "SmallCompany -> BigCompany"
 
   val smallCompany = new Company[SmallCompany](new SmallCompany)
