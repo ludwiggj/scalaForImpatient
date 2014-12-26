@@ -1,4 +1,6 @@
-package ch17.lectures.michael.peyton.jones.example
+package ch17.lectures.michael.peyton.jones.example.contravariance
+
+import ch17.lectures.michael.peyton.jones.example.{Child, Parent, GrandParent}
 
 /*
 
@@ -18,12 +20,12 @@ package ch17.lectures.michael.peyton.jones.example
     return types later on (see below)...
 */
 
-class AnotherBadBox[-T] {
-
-  def befriend(x: T): T = {
-    x
-  }
-}
+//class AnotherBadBox[-T] {
+//
+//  def befriend(x: T): T = {
+//    x
+//  }
+//}
 
 /*
 
@@ -36,34 +38,34 @@ class AnotherBadBox[-T] {
     AnotherBadBox[GrandParent] <: AnotherBadBox[Parent] <: AnotherBadBox[Child]
 */
 
-object Example extends App {
-  var myDad: Parent = new Parent()
-
-  def befriendMyDad(box: AnotherBadBox[Parent]): Parent = {
-    val itsMyDadAgain: Parent = box.befriend(myDad)
-    itsMyDadAgain
-  }
-
-  val boxedGrandparent = new AnotherBadBox[GrandParent]
-  val boxedParent = new AnotherBadBox[Parent]
-  val boxedChild = new AnotherBadBox[Child]
-
-  // (a) This one is disallowed by compiler...
-
-  // Error: type mismatch;
-  // found   : AnotherBadBox[Child]
-  // required: AnotherBadBox[Parent]
-
-  // itsMyDadYetAgain = befriendMyDad(boxedChild)
-
-  // (b) This one is OK
-  var itsMyDadYetAgain: Parent = befriendMyDad(boxedParent)
-
-  // (c) NOTE: This one causes a problem...
-  //     This is an example of why compiler has disallowed the definition of AnotherBadBox
-
-  itsMyDadYetAgain = befriendMyDad(boxedGrandparent)
-}
+//object Example extends App {
+//  var myDad: Parent = new Parent()
+//
+//  def befriendMyDad(box: AnotherBadBox[Parent]): Parent = {
+//    val itsMyDadAgain: Parent = box.befriend(myDad)
+//    itsMyDadAgain
+//  }
+//
+//  val boxedGrandparent = new AnotherBadBox[GrandParent]
+//  val boxedParent = new AnotherBadBox[Parent]
+//  val boxedChild = new AnotherBadBox[Child]
+//
+//  // (a) This one is disallowed by compiler...
+//
+//  // Error: type mismatch;
+//  // found   : AnotherBadBox[Child]
+//  // required: AnotherBadBox[Parent]
+//
+//  // itsMyDadYetAgain = befriendMyDad(boxedChild)
+//
+//  // (b) This one is OK
+//  var itsMyDadYetAgain: Parent = befriendMyDad(boxedParent)
+//
+//  // (c) NOTE: This one causes a problem...
+//  //     This is an example of why compiler has disallowed the definition of AnotherBadBox
+//
+//  itsMyDadYetAgain = befriendMyDad(boxedGrandparent)
+//}
 
 /*
 

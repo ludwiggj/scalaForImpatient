@@ -6,34 +6,27 @@ http://blogs.atlassian.com/2013/01/covariance-and-contravariance-in-scala/
 
 2) Consider AnotherBadBox class, which shows problem with contra-variance and return types.
 
-So it looks like we have to make A invariant.
+3) So it looks like we have to make A invariant.
 
-As an aside, this is why it’s an absolutely terrible idea that Java’s arrays are covariant.
-That means that you can write code like the following:
+   As an aside, this is why it’s an absolutely terrible idea that Java’s arrays are covariant.
+   That means that you can write code like the following:
 
-Integer[] ints = [1,2]
+   Integer[] ints = [1,2]
+   Object[] objs = ints
+   objs[0] = "I'm an integer!"
 
-Object[] objs = ints
+   Which will compile, but throw an ArrayStoreException at runtime. Nice.
 
-objs[0] = "I'm an integer!"
+   What to do?
 
-Which will compile, but throw an ArrayStoreException at runtime. Nice.
+   Actually, we don’t have to make container types with an “append”-like method invariant.
+   Scala also lets us put type bounds on things. So if we modify Box as follows:
 
-/*
+   class Box[+A]
+   class BoundedBox[+A] {
+     def set[B >: A](x:B) : Box[B] = {
+       new Box()
+     }
+   }
 
-What to do?
-
-Actually, we don’t have to make container types with an “append”-like method invariant.
-Scala also lets us put type bounds on things. So if we modify Box as follows:
-
-*/
-
-class Box[+A]
-
-class BoundedBox[+A] {
-  def set[B >: A](x:B) : Box[B] = {
-    new Box()
-  }
-}
-
-// then it will compile. This ensures that the input type of the set method is properly contravariant.
+   then it will compile. This ensures that the input type of the set method is properly contravariant.
