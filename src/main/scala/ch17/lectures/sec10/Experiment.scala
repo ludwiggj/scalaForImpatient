@@ -1,12 +1,12 @@
 package ch17.lectures.sec10
 
-abstract class Item {
-  def price: BigDecimal
-  def description: String
-  override def toString = s"$description $price"
-}
-
-class SimpleItem(val price: BigDecimal, val description: String) extends Item
+// abstract class Item {
+//   def price: BigDecimal
+//   def description: String
+//   override def toString = s"$description $price"
+// }
+//
+// class SimpleItem(val price: BigDecimal, val description: String) extends Item
 
 object ExperimentMain extends App {
 

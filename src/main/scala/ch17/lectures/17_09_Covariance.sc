@@ -13,17 +13,17 @@ def makeFriends(p: Pair[Person]): Unit = {
 val p1 = new Person("Paddington")
 val p2 = new Person("Simon the Dancing")
 
-makeFriends(new Pair(p1, p2))
+val personPair: Pair[Person] = new Pair(p1, p2)
+
+makeFriends(personPair)
 
 val s1 = new Student("Stu")
 val s2 = new Student("Dent")
 
-val personPair: Pair[Person] = new Pair(s1, s2)
-makeFriends(personPair)
+val studentPair: Pair[Student] = new Pair(s1, s2)
 
 // Doesn't work, as there is no relationship between
 // Pair[Person] and Pair[Student]
-val studentPair: Pair[Student] = new Pair(s1, s2)
 // makeFriends(studentPair)
 // Fix by making T covariant
 
