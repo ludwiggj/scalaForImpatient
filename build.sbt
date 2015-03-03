@@ -12,9 +12,7 @@ libraryDependencies ++= Seq(
   "org.scalamock" %% "scalamock-core" % "3.2.1" % "test",
   "org.scalatest" %% "scalatest" % "2.2.1" % "test",
   "org.scala-sbt" % "io" % "0.13.2",
-  "org.expecty" % "expecty" % "0.10",
-  "joda-time" % "joda-time" % "2.1",
-  "org.joda" % "joda-convert" % "1.3"
+  "org.expecty" % "expecty" % "0.10"
 )
 
 resolvers += "Expecty Repository" at "https://raw.github.com/pniederw/expecty/master/m2repo/"
