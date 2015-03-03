@@ -4,7 +4,7 @@
 
 package ch05.questions.q5
 
-import scala.reflect.BeanProperty
+import scala.beans.BeanProperty
 
 class Student(@BeanProperty var name : String, @BeanProperty var id : Long) {
 

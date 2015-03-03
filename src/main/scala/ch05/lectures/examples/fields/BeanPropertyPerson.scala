@@ -1,6 +1,6 @@
 package examples.fields
 
-import scala.reflect.BeanProperty
+import scala.beans.BeanProperty
 
 class BeanPropertyPerson {
   @BeanProperty var age = 0
